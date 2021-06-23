@@ -1,0 +1,11 @@
+<script>
+    do {
+        var temperatureC = +prompt("Введите значение температуры в градусах Цельсия");
+        if (isNaN(temperatureC)) {
+            alert("Вы ввели не числовое значение, пожалуйста повторите ввод!"); 
+        }
+    } while (isNaN(temperatureC))
+
+    var temperatureF = (9 / 5) * temperatureC + 32
+    alert("Температура по Фаренгейту составляет " + temperatureF +" F.")
+</script>
