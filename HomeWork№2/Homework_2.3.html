@@ -1,0 +1,25 @@
+<meta charset = "utf-8">
+<script>   
+    function GetNumber (){
+        do {
+            var number = +prompt("Введите число");
+            if (isNaN(number)) {
+                alert("Вы ввели не числовое значение, пожалуйста повторите ввод!"); 
+            }
+        } while (isNaN(number));
+        return number
+    }
+    
+    var a = GetNumber();
+    var b = GetNumber();
+
+    if (a >= 0 && b >= 0) {
+        alert(a + " - " + b + " = " +  (a - b)); // Если оба числа положительные (0 тоже считаетсяположительным), то выводится их разность
+    }
+    else if (a < 0 && b < 0) {
+        alert(a + " * " + b + " = " +  (a * b)); // Если оба числа отрицательные, то выводится их произведение   
+    }
+    else {
+        alert(a + " + " + b + " = " +  (a + b)); // Если числа имеют разные знаки, то выводится их сумма 
+    }
+</script>
