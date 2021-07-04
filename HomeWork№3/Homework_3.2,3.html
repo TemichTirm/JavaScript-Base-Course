@@ -1,0 +1,20 @@
+<meta charset = "utf-8">
+<script>
+    function CountBasketPrice(basket) {
+        let totalPrice = 0;
+        for (let good of basket){
+            totalPrice += good.price;
+        }
+        return totalPrice;
+    }
+    
+    let basket = new Array(
+        { name: "shoes", price: 100},
+        { name: "hat", price: 20},
+        { name: "coat", price: 300},
+        { name: "shirt", price: 80},
+        { name: "t-shirt", price: 40},
+    );
+
+    console.log(CountBasketPrice(basket));
+</script>

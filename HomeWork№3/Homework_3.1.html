@@ -1,0 +1,21 @@
+<meta charset = "utf-8">
+<script>   
+    var i = 0;
+    var resultString = "";
+    while (i <= 100) {
+        var j = 2
+        var isSimple = true;
+        while(j < i){
+            if (i % j === 0){
+                isSimple = false;
+                break;
+            }
+            j++
+        }
+        if (isSimple){
+            resultString += i + ", ";
+        }
+        i++;
+    }
+    alert(resultString);
+</script>

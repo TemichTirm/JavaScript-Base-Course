@@ -1,0 +1,13 @@
+<meta charset = "utf-8">
+<script>
+var height = 20;
+var layer = "";   
+    for (var i = 1; i <= height ; i++) {
+        layer += "*";
+        console.log(layer);
+    }
+    for (var i = height; i > 0 ; i--) {
+        layer = layer.slice(0, i);
+        console.log(layer);
+    }
+</script>
