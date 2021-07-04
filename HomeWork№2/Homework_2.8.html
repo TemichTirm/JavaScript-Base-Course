@@ -1,10 +1,35 @@
 <meta charset = "utf-8">
 <script>   
-    function Power(val, pow){
-        if (pow > 1) {
-            return val * Power(val, pow - 1);
+    function Power(val, pow) {
+        if (pow % 1 === 0) {    // Определяем является ли степень целым числом
+            if (pow === 0) {    // Если степень = 0, то возвращает 1
+                return 1;
+            }
+            if (pow <= -1) {    // Если степень отрицательная, то значение val переходит в знаменатель
+                return 1 / val * Power(val, pow + 1);
+            }
+            if (pow >= 1) {
+                return val * Power(val, pow - 1);
+            }
         }
-        return val;
+        else {  // Если степень дробная
+            let fractional = pow % 1;       // Выделяем дробную часть
+            let integer = parseInt(pow);    // Выделяем целую часть
+            let length = 0;
+            while (fractional % 1 != 0) {   // Поределяем количество разрядов в дробной части
+                length++;
+                fractional *= 10;
+            }
+            let denominator = Power(10, length) // Вычисляем знаменатель
+            let nominator = pow * denominator;  // Вычисляем числитель
+            let x = Power(val, nominator);      // Возводим число в степень числителя
+            if (x < 0) {                        // Вычисляем корень в степени знаменателя
+                return (-1) * (((-1) * x) ** (1 / denominator));        // Обходим ошибку NaN, если нужно вычислить корень из отрицательного числа
+            }
+            else {
+                return x ** (1 / denominator);
+            }            
+        }        
     }
 
     function GetNumber(request){
