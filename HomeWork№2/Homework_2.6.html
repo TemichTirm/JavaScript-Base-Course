@@ -1,0 +1,61 @@
+<meta charset = "utf-8">
+<script>   
+    function Add(a, b) {
+        return a + b;
+    }
+
+    function Substract(a, b) {
+        return a - b;
+    }
+
+    function Multiply(a, b) {
+        return a * b;
+    }
+
+    function Divide(a, b) {        
+        return a / b;
+    }    
+
+    function MathOperation(arg1, arg2, operation) {
+        switch (operation) {
+            case "add" :
+                return Add(arg1, arg2);
+            case "substract" :
+                return Substract(arg1, arg2);
+            case "multiply" :
+                return Multiply(arg1, arg2);
+            case "divide" :
+                return Divide(arg1, arg2);   
+            default :
+                return NaN; 
+        }
+    }
+
+    function GetNumber (){
+        do {
+            var number = +prompt("Введите число");
+            if (isNaN(number)) {
+                alert("Вы ввели не числовое значение, пожалуйста повторите ввод!"); 
+            }
+        } while (isNaN(number));
+        return number;
+    }
+
+    function GetOperation (){
+        do {
+            var operation = prompt("Введите имя операции из списка: \"add\", \"substract\", \"multiply\", \"divide\"").toLowerCase();
+            var condition = operation === "add" || operation === "substract" || operation === "multiply" || operation === "divide";
+            if (!condition) {
+                alert("Вы ввели неправильное имя операции, пожалуйста повторите ввод!"); 
+            }
+        } while (!condition);
+        return operation
+    }
+
+    var arg1 = GetNumber();
+    var arg2 = GetNumber();
+    var operation = GetOperation();
+
+    alert("Результат операции = " + MathOperation(arg1, arg2, operation));
+    
+</script>
