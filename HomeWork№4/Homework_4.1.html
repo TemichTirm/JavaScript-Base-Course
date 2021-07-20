@@ -1,0 +1,21 @@
+<meta charset = "utf-8">
+<script src="getIntNumber.js" type="text/javascript"></script>
+<script type="text/javascript">
+    let request = "Введите целое положительное число.";
+    let input = getIntNumber(request, 0);   
+    console.log(getNumberPositionObject(input));
+
+
+    function getNumberPositionObject(num) {
+        let digitPositions = {};
+        if (num > 999) {
+            console.log("Число превышает 999 и имеет более трех разрядов.")            
+        }
+        else {
+            digitPositions["единицы"] = num % 10;
+            digitPositions["десятки"] = ~~(num / 10) % 10;
+            digitPositions["сотни"] = ~~(num / 100) % 10;
+        }
+        return digitPositions;
+    }
+</script>
