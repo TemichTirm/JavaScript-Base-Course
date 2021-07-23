@@ -1,24 +1,8 @@
-/* Стиль для черной фигуры */
-.blackPiece {
-    font-family: 'Arial'; 
-    color: black;
-    font-size: 200%; 
-    text-shadow: 2px 0 2px #fff, 
-                 0 2px 2px #fff, 
-                -2px 0 2px #fff, 
-                 0 -2px 2px #fff;
+/* Стиль для фигур */
+.piece {
+    align-items: center;
+    border: none; 
 } 
-
-/* Стиль для белой фигуры */
-.whitePiece {
-    font-family: 'Arial';
-    color: white;
-    font-size: 200%; 
-    text-shadow: 2px 0 2px #000, 
-                 0 2px 2px #000, 
-                -2px 0 2px #000, 
-                 0 -2px 2px #000;
-}
 
 /* Стиль для черной клетки */
 .blackSquare {
