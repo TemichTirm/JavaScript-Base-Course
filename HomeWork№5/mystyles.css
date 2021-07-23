@@ -1,0 +1,50 @@
+/* Стиль для черной фигуры */
+.blackPiece {
+    font-family: 'Arial'; 
+    color: black;
+    font-size: 200%; 
+    text-shadow: 2px 0 2px #fff, 
+                 0 2px 2px #fff, 
+                -2px 0 2px #fff, 
+                 0 -2px 2px #fff;
+} 
+
+/* Стиль для белой фигуры */
+.whitePiece {
+    font-family: 'Arial';
+    color: white;
+    font-size: 200%; 
+    text-shadow: 2px 0 2px #000, 
+                 0 2px 2px #000, 
+                -2px 0 2px #000, 
+                 0 -2px 2px #000;
+}
+
+/* Стиль для черной клетки */
+.blackSquare {
+    text-align: center;
+    width : 50px; 
+    height : 50px; 
+    background-color : black;
+}
+
+/* Стиль для белой клетки */
+.whiteSquare {                
+    text-align: center;
+    width : 50px; 
+    height : 50px; 
+    background-color : white;
+}
+
+/* Стиль для разметки шахматной доски */
+.markSymbol {
+    text-align: center;
+    border-style : none; 
+    width : 50px; 
+    height : 50px; 
+    background-color : white;
+    color: mediumblue;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 150%;
+}
