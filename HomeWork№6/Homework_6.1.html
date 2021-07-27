@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script type="text/javascript" src="cart.js"></script>
+</head>
+
+<body>
+    <div class="productListField">
+        <table>
+            <caption>
+                <h2 style="text-align: center;">Список товаров</h2>
+            </caption>
+            <thead>
+                <th>№</th>
+                <th>Наименование</th>
+                <th>Бренд</th>
+                <th>Цена, USD</th>
+                <th class="addToCartColumn"></th>
+            </thead>
+            <tbody id="list-of-products">
+                <script>
+                    createProductTable();
+                </script>
+            </tbody>
+        </table>
+    </div>
+    <div class="cartField">
+        <table>
+            <thead>
+                <th style="width: 150px; padding: 10px 0px;">Товаров в корзине:</th>
+                <th id="numOfProduct" style="width: 75px; padding: 10px 0px;">0</th>
+                <th style="width: 150px; padding: 10px 0px;">На сумму, USD:</th>
+                <th id="totalPrice" style="width: 75px; padding: 10px 0px;">0</th>
+                <td style="width: 50px; padding: 0px 0px; background: none; border: none;">
+                    <a id="openCartWindowButton" class="buttonBuy" style="margin-left: 10px; width: 45px;" title="Перейти в корзину">
+                        <img class="addToCartPicture" src="images/full-cart-light.png">
+                    </a>
+                    <script>
+                        let openCartWindowButton = document.getElementById("openCartWindowButton");
+                        openCartWindowButton.addEventListener('click', openCartWindow);
+                    </script>
+                </td>
+            </thead>
+        </table>
+    </div>
+    <div id="cartWindow" class="modal">
+        <div class="cartWindowContent">
+            <span class="close">&times;</span>
+            <div class="CartListField">
+                <div class="productListTable">
+                    <table>
+                        <caption>
+                            <h2 style="text-align: center;">Товары в корзине</h2>
+                        </caption>
+                        <thead>
+                            <th>№</th>
+                            <th>Наименование</th>
+                            <th>Бренд</th>
+                            <th>Цена, USD</th>
+                            <th>Количество</th>
+                            <th>Стоимость</th>
+                            <th></th>
+                        </thead>
+                        <tbody id="cartList" style="overflow: auto;">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cartSummaryField">
+                    <table>
+                        <tbody class="cartSummary">
+                            <th class="cartSummaryCell" style="width: 223px;">Товаров в корзине:</th>
+                            <th id="productsQuantity" class="cartSummaryCell" style="width: 124px;"></th>
+                            <th class="cartSummaryCell" style="width: 290px;">На сумму, USD:</th>
+                            <th id="totalCost" class="cartSummaryCell" style="width: 160px;"></th>
+                            <td id="buyButton" style="width: 50px; padding: 0px 0px; background: none; border: none;">
+                                <a id="openConfirmationWindowButton" class="buttonBuy" style="margin-left: 5px; width: 45px;" title="Подтвердить покупку">
+                                    <img class="addToCartPicture" src="images/buy-confirmation.png">                                    
+                                </a>
+                            </td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="buyConfirmationWindow" class="modal" style="z-index: 2;">
+        <div class="buyConfirmationContent">
+            <span class="close">&times;</span>
+            <div class="CartListField" style="height: auto; margin-bottom: 10;">
+                <h2>Покупка успешно совершена, поздравляем!</h2>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
