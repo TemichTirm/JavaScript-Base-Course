@@ -21,11 +21,7 @@
                 <th>Цена, USD</th>
                 <th class="addToCartColumn"></th>
             </thead>
-            <tbody id="list-of-products">
-                <script>
-                    createProductTable();
-                </script>
-            </tbody>
+            <tbody id="list-of-products"></tbody>
         </table>
     </div>
     <div class="cartField">
@@ -36,8 +32,8 @@
                 <th style="width: 150px; padding: 10px 0px;">На сумму, USD:</th>
                 <th id="totalPrice" style="width: 75px; padding: 10px 0px;">0</th>
                 <td style="width: 50px; padding: 0px 0px; background: none; border: none;">
-                    <a id="openCartWindowButton" class="buttonBuy" style="margin-left: 10px; width: 45px;" title="Перейти в корзину">
-                        <img class="addToCartPicture" src="images/full-cart-light.png">
+                    <a id="openCartWindowButton" class="buttonBuy" style="margin-left: 10px; width: 50px; height: 50px;" title="Перейти в корзину">
+                        <img class="addToCartPicture" src="images/full-cart-light.png" style="margin-top: 5px;">
                     </a>
                     <script>
                         let openCartWindowButton = document.getElementById("openCartWindowButton");
@@ -93,6 +89,16 @@
             <div class="CartListField" style="height: auto; margin-bottom: 10;">
                 <h2>Покупка успешно совершена, поздравляем!</h2>
             </div>
+        </div>
+    </div>
+    <div class="gallery">
+        <div class="header">
+            <h2>Галерея товаров</h2>
+        </div>
+        <div class="galleryContent">
+
+        </div>
+        <div class="thumbnailsWindow">
         </div>
     </div>
 </body>
