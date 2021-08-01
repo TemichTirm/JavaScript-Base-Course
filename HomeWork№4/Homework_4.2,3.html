@@ -1,0 +1,65 @@
+<meta charset = "utf-8">
+<script>
+    // Создание класса Product с публичными свойствами и функциями
+    function Product (count, name, brand, quantity, price) {
+        this.count = count;
+        this.name = name;
+        this.brand = brand;
+        this.quantity = quantity;
+        this.price = price;
+
+        // Вывод в консоль всех свойств продукта
+        this.showTotal = function () {
+            console.log("№: " + this.count);
+            console.log("Name: " + this.name);
+            console.log("Brand: " + this.brand);
+            console.log("Quantity: " + this.quantity);
+            console.log("Price: " + this.price);
+        };
+
+        // Вывод в консоль наименования продукта
+        this.showName = function () {            
+            console.log("Name: " + this.name);
+        };
+
+        // Вывод в консоль бренда продукта
+        this.showBrand = function () {
+            console.log("Brand: " + this.brand);
+        };
+
+        // Вывод в консоль цены продукта
+        this.showPrice = function () {
+            console.log("Price: " + this.price);
+        };
+    };
+    
+    // Создание корзины и инициализация пяти продуктов
+    let basket = {
+        products: [
+        new Product(count = 1, name = "shoes", brand = "Carlo Pazolini", quantity = 2, price = 100),
+        new Product(count = 2, name = "hat", brand = "Borsalino", quantity = 3, price = 20),
+        new Product(count = 3, name = "coat", brand = "Finn Flare", quantity = 1, price = 300),
+        new Product(count = 4, name = "shirt", brand = "Henderson", quantity = 5, price = 80),
+        new Product(count = 5, name = "t-shirt", brand = "Lacoste", quantity = 10, price = 40),
+        ],
+
+        // Вычисление стоимости всех товаров в корзине с учетом их количества
+        getTotalPrice: function () {
+            let totalPrice = 0;
+            for (let product of this.products) {
+                totalPrice += product.price * product.quantity;
+            }
+            return totalPrice;
+        },
+    };
+
+    console.log(basket.getTotalPrice());
+
+    // Проверка получения доступа к функциям продуктов, находящихся в корзине. Можно функции использовать для каталога и др. модулей интернет магазина
+    // Функции для сущности Product можно в дальнейшем наращивать в зависимости от требуемого функционала
+    for (let product of basket.products) {
+        console.log();
+        product.showTotal();
+    }
+
+</script>
