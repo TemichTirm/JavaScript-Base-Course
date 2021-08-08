@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script type="text/javascript" src="./script.js"></script>
+</head>
+
+<body>
+    <div class="productListField">
+        <table>
+            <caption>
+                <h2 style="text-align: center; margin: 5px auto;">Список товаров</h2>
+            </caption>
+            <thead>
+                <th>№</th>
+                <th>Наименование</th>
+                <th>Бренд</th>
+                <th>Цена, USD</th>
+                <th class="addToCartColumn"></th>
+            </thead>
+            <tbody id="listOfProducts"></tbody>
+        </table>
+    </div>
+    <div class="cartField">
+        <table>
+            <thead class="cartFieldTable">
+                <th id="numOfProductTitle">Товаров в корзине:</th>
+                <th id="numOfProduct">0</th>
+                <th id="totalPriceTitle">На сумму, USD:</th>
+                <th id="totalPrice">0</th>
+                <td id="openCartWindow">
+                    <a id="openCartWindowButton" class="buttonBuy" title="Перейти к оформлению">
+                        <img class="addToCartPicture" src="./images/right-arrow.png" style="margin-top: 5px;">
+                    </a>                    
+                </td>
+            </thead>
+        </table>
+    </div>    
+    <div id="gallery" class="modal">
+        <div id="galleryWindow">
+            <span id="galleryClose" class="close">&times;</span>
+            <div id="header"></div>            
+            <div id="galleryContent">
+                <div id="galleryMain"></div>
+                <div id="thumbnailsWindow"></div>
+            </div>
+        </div>
+    </div>
+    <div id="cart" class="modal">
+        <div class="cartWindow">
+            <span id="cartClose" class="close">&times;</span>
+            <div id="cartListContent" class="content" style="margin-top: 30px;">
+                <h2 class="cartHeader">Состав корзины</h2>
+                <div id="cartListField" class="field" >
+                    <div class="productListTable">
+                        <table>
+                            <thead>
+                                <th>№</th>
+                                <th>Наименование</th>
+                                <th>Бренд</th>
+                                <th>Цена, USD</th>
+                                <th>Количество</th>
+                                <th>Стоимость</th>
+                                <th></th>
+                            </thead>
+                            <tbody id="cartList" style="overflow: auto;">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="cartSummaryField">
+                        <table style="margin: 0px; padding: 0px; bottom: 0px;">
+                            <tbody class="cartSummary">
+                                <th class="cartSummaryCell" style="width: 223px;">Товаров в корзине:</th>
+                                <th id="productsQuantity" class="cartSummaryCell" style="width: 124px;"></th>
+                                <th class="cartSummaryCell" style="width: 290px;">На сумму, USD:</th>
+                                <th id="totalCost" class="cartSummaryCell" style="width: 160px;"></th>
+                                <td id="nextStep">
+                                    <a id="nextStepButton" class="buttonBuy" title="Перейти далее">
+                                        <img class="addToCartPicture" src="images/right-arrow.png">                                    
+                                    </a>
+                                </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <form>
+                <div id="deliveryContent" class="content">
+                    <h2 class="cartHeader">Адрес доставки</h2>
+                    <div id="deliveryField" class="field">                    
+                        <p class="inputString">Индекс:       <input class="longInput" type="text"></p>
+                        <p class="inputString">Город:       <input class="longInput" type="text" required> *</p>
+                        <p class="inputString">Улица:       <input class="longInput" type="text" required> *</p>
+                        <p class="inputString">Дом:         <input class="shortInput" type="text" required> *</p>
+                        <p class="inputString">Корпус:      <input class="shortInput" type="text"></p>
+                        <p class="inputString">Квартира:    <input class="shortInput" type="text" required> *</p>
+                        <p class="inputString">Подъезд:     <input class="shortInput" type="text"></p>
+                        <p class="inputString">Этаж:        <input class="shortInput" type="text"></p>
+                        <p id="notice">Поля отмеченные * обязательны для заполнения</p>
+                        <p id="controlRow">
+                            <a id="prevStepButton" class="buttonBuy" title="Перейти назад" style="float: left; height: 50px;">
+                                <img class="addToCartPicture" src="images/left-arrow.png">                                    
+                            </a>
+                            <a id="nextStepButton2" class="buttonBuy" title="Перейти далее" style="float: right;">
+                                <img class="addToCartPicture" src="images/right-arrow.png">                                    
+                            </a>
+                        </p>                    
+                    </div>
+                </div>
+                <div id="commentsContent" class="content">
+                    <h2 class="cartHeader">Комментарий</h2>
+                    <div id="commentsField" class="field">
+                        <textarea id="comments"></textarea>
+                        <p id="controlRow2">
+                            <a id="prevStepButton2" class="buttonBuy" title="Перейти назад" style="float: left; height: 50px;">
+                                <img class="addToCartPicture" src="images/left-arrow.png">                                    
+                            </a>
+                            <input id="submitButton" class="buttonBuy" type="submit" value="Оформить покупку">                            
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="infoWindow" class="modal" style="z-index: 2;">
+        <div class="infoWindowContent">
+            <span id="infoClose" class="close">&times;</span>
+            <div class="infoField">
+                <h3>В корзине отсутствуют товары!</h3>
+                <h3>Пожалуйста добавьте товар в корзину чтобы продолжить.</h3>
+                <a id="okButton" class="buttonBuy" style="padding-top: 17px;">Ok</a>
+            </div>
+        </div>
+    </div>
+</body>
+    <div id="buyConfirmationWindow" class="modal" style="z-index: 2;">
+        <div class="infoWindowContent">
+            <span id="confirmationWindowClose" class="close">&times;</span>
+            <div class="infoField">
+                <h2 style="margin: 45px 10px 0px 10px; ">Покупка успешно совершена, поздравляем!</h2>
+                <p style="margin: 40px 10px 0px 10px; ">
+                    <a id="okButton2" class="buttonBuy">Ok</a>
+                </p>
+            </div>
+        </div>        
+    </div>
+</html>

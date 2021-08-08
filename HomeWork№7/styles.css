@@ -1,0 +1,537 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
+  text-shadow: 0px 1px 2px rgb(173, 173, 173);
+  background: #fafafa;
+  color: #444;
+}
+
+/* Стиль кнопок */
+.buttonBuy {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 0;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #777;
+    color: #fff;
+    outline: none;
+    border: 2px solid #8d8d8d;
+    border-radius: 5px;
+    box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1px .1px .2em rgb(129, 129, 129);
+    background: linear-gradient(#777, #444);
+  }
+
+  .buttonBuy:after {
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+    content: '';
+    display: block;
+    height: 25%;
+    right: 0px;
+    position: absolute;
+    top: 25%;
+    width: 100%;
+  }
+
+  .buttonBuy:hover {
+    background: linear-gradient(rgb(61, 61, 61), rgb(32, 32, 32));
+    content: '';
+    margin: auto;
+    display: block;
+  }
+
+  a.buttonBuy:active {
+    top: .1em;
+    left: .1em;
+    box-shadow: 0 0 0 60px rgba(0,0,0,.05) inset;
+  }
+
+  /* Стиль таблицы с перечнем товаров */
+  table {
+    border-collapse: separate;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  thead th {
+    background: linear-gradient(#777, #444);
+    border-left: 1px solid #555;
+    border-right: 1px solid #777;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #333;
+    box-shadow: inset 0 1px 0 #999;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    position: relative;
+    text-shadow: 0 1px 2px #000;
+  }
+
+  thead th:after {
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+    content: '';
+    display: block;
+    height: 25%;
+    left: 0;
+    margin: 1px 0 0 0;
+    position: absolute;
+    top: 25%;
+    width: 100%;
+  }
+
+  thead th:first-child {
+    border-left: 1px solid #777;
+    box-shadow: inset 1px 1px 0 #999;
+    width: 20px;
+  }
+
+  thead th:last-child {
+    background: none;
+    border-style: none;
+    box-shadow: none;
+    background: #fafafa;
+  }
+
+  td {
+    border-right: 1px solid #fff;
+    border-left: 1px solid #e8e8e8;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 10px 0px;
+    position: relative;
+    transition: all 300ms;
+  }
+
+  td:first-child {
+    box-shadow: inset 1px 0 0 #fff;
+  }
+
+  td:last-child {
+    border-right: 1px solid #e8e8e8;
+    box-shadow: inset -1px 0 0 #fff;
+  }
+
+  tr:nth-child(odd) td {
+    background: #f1f1f1
+  }
+
+  tr:last-of-type td {
+    box-shadow: inset 0 -1px 0 #fff;
+  }
+
+  tr:last-of-type td:first-child {
+    box-shadow: inset 1px -1px 0 #fff;
+  }
+
+  tr:last-of-type td:last-child {
+    box-shadow: inset -1px -1px 0 #fff;
+  }
+
+  tbody:hover td {
+    color: transparent;
+    text-shadow: 0 0 3px #aaa;
+  }
+
+  tbody:hover tr:hover td {
+    color: #444;
+    text-shadow: 0px 1px 2px rgb(173, 173, 173);
+  }
+
+  .addToCartColumn {
+    background-color: #fafafa;
+    border-style: none;
+    padding: 0px;
+    width: 50px;
+    background: none; 
+    border: none;
+    margin: 0px;
+  }
+
+  /* Стиль окна со списком товаров */
+  .productListField {
+    position: relative;
+    width: 90%;
+    height: 550px;
+    max-height: 550px;
+    border-radius: 10px;
+    border: 2px solid purple;
+    padding: 10px;
+    margin: 0 auto;
+    overflow: auto;
+  }
+
+/* Стиль полей с данными корзины */
+  .cartField {
+    position: relative;
+      width: 90%;
+      height: min-content;
+      max-height: 95px;
+      border-radius: 10px;
+      border: 2px solid purple;
+      margin: auto;
+      margin-top: 10px;
+      padding: 20px 10px;
+      text-align: inherit;
+  }
+  
+  #numOfProductTitle, #totalPriceTitle{
+    width: 600px; 
+    padding: 10px 20px;
+    text-align: right;
+    font-size: 18px;
+  }
+  
+  #numOfProduct, #totalPrice {
+    width: 300px; 
+    padding: 10px 0px;
+    font-size: 18px;
+  }
+  
+  #openCartWindow {
+    width: 50px; 
+    padding: 0px; 
+    background: none; 
+    border: none;
+    margin: 0px;
+    display: inline;
+  }
+  
+  #openCartWindowButton {
+    margin-left: 5px; 
+    width: 50px; 
+    height: 50px;
+  }
+
+  .addToCartPicture {
+    height: 35px;
+    width: 25px;
+    vertical-align: middle;
+    align-items: center;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+
+/* Стиль всплывающего окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.infoWindowContent {
+  background: #fafafa;
+  margin: 10% auto;
+  padding: 0px 15px 0px 5px;
+  border: 1px solid #888;
+  width: 40%;
+  height: 200px;
+  text-align: center;
+}
+
+.infoField {
+  margin: 25px -5px 5px 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  border: 2px solid purple;
+  text-align: center;
+}
+
+.buyConfirmationContent {
+  background: #fafafa;
+  margin: 10% auto;
+  padding: 5px;
+  border: 1px solid #888;
+  width: 40%;
+  height: 155px;
+  text-align: center;
+}
+
+#galleryWindow {
+  background: #fafafa;
+  margin: 15px auto;
+  padding: 0px 20px 20px 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 95%;
+  position: relative;
+}
+
+#galleryContent {  
+  height: 89%;
+  margin: 0px;
+  border-radius: 10px;
+  border: 2px solid purple;
+  padding: 10px;
+  text-align: center;
+}
+
+#header {
+  margin: 0px auto;
+  padding: 0px;
+  position: inherit;
+  text-align: center;
+}
+
+#galleryMain {
+  margin: 5px 10px;
+  width: auto;
+  height: 85%;
+  position: relative;
+  border-bottom: 2px solid purple;
+}
+
+.mainImage {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnailsWindow {
+  padding: 0px 0px;
+  text-align: center;
+  background-color: white;
+  margin: 0px 5px;
+}
+
+.thumbnails {
+  width: auto;
+  height: auto;
+  max-height: 70px;
+  margin-left: 10px;
+  margin-right: 10px;
+  bottom: 0ex;
+}
+
+.thumbnails:hover {
+  border: 2px solid purple;
+  border-radius: 10px;
+}
+
+*[data-content = "focus"] {
+  border: 2px solid purple;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: -10px;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
+.cartWindow {
+  background: #fafafa;
+  margin: 15px auto;
+  padding: 0px 15px 15px 15px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 95%;
+  position: relative;
+  transition: all 300ms;
+}
+
+.content {
+  text-align: center;
+  margin: 5px auto;
+  width: auto;
+  height:min-content;
+  border-radius: 10px;
+  border: 2px solid purple;
+  padding: 5px;
+}
+
+.cartHeader {
+  position: relative;
+  margin: 0px auto;
+  padding: 0px;
+}
+
+.field {
+  height: 460px;
+  padding: 5px;
+  position: relative;
+}
+
+.cartSummaryField {
+  padding: 0px;
+  position: relative;  
+  bottom: 0px;
+  margin: 10px auto;
+}
+
+#cartListField {
+  display: block;
+}
+
+#deliveryField {
+  display: none;
+  padding-top: 5px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+#controlRow {
+  margin-top: 35px;
+  margin-right: 5px;
+}
+
+#commentsField {
+  display: none;
+  padding-top: 5px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+#comments {
+  width: 95%;
+  height: 80%;
+  margin-left: 17px;
+  padding: 0px;
+  vertical-align: bottom;
+}
+
+#controlRow2 {
+  bottom: 5px;
+  margin-top: 35px;
+  margin-right: 5px;
+}
+
+.inputString {
+  top: 0px;
+  margin: 10px;
+  padding-left: 250px;
+}
+
+.longInput {
+  width: 250px;  
+}
+
+.shortInput {
+  width: 100px;
+}
+
+input {
+  text-align: right;
+  font-size: 14px;
+  float: right;
+  margin-right: 250px;
+  margin-top: 5px;
+}
+
+#notice {
+  margin-top: 20px; 
+  text-align: center; 
+  font-size: 12px;
+}
+
+.productListTable {
+  height: 85%;
+  padding: 0px;
+  overflow: auto;
+  position: relative;
+}
+
+.cartSummary {
+    font-weight: bold;
+    text-shadow: 0 1px 2px #000;
+}
+
+.cartSummaryCell {
+    background: linear-gradient(#777, #444);
+    border-left: 1px solid #555;
+    border-right: 1px solid #777;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #333;
+    box-shadow: inset 0 1px 0 #999;
+    color: #fff;
+    position: relative;
+    padding: 10px 15px;
+}
+
+.cartSummaryCell:after {
+  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+  content: '';
+  display: block;
+  height: 25%;
+  left: 0;
+  margin: 1px 0 0 0;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+}
+
+#nextStep {
+  width: 50px; 
+  height: 50px;
+  padding: 0px 0px; 
+  background: none; 
+  border: none;
+}
+
+#nextStepButton, #nextStepButton2, #prevStepButton, #prevStepButton2{
+  margin-left: 1px;
+  padding-top: 5px;
+  width: 50px;  
+  height: 50px;
+}
+
+#submitButton {
+  margin: 0px;
+  width: 150px;  
+  height: 50px;
+  float: right;
+  padding: 0px;
+}
+
+#submitButton:after {
+  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+  content: '';
+  display: block;
+  height: 25%;
+  right: 0px;
+  position: absolute;
+  top: 25%;
+  width: 100%;
+}
+
+#submitButton:hover {
+  background: linear-gradient(rgb(61, 61, 61), rgb(32, 32, 32));
+  content: '';
+  margin: auto;
+  display: block;
+}
+
+#submitButton:active {
+  top: .1em;
+  left: .1em;
+  box-shadow: 0 0 0 60px rgba(0,0,0,.05) inset;
+}
+
+
+
+#okButton2 {
+  padding-top: 17px; 
+  margin-top: 0px;
+}
+
+
