@@ -1,0 +1,34 @@
+/* Стиль для фигур */
+.piece {
+    align-items: center;
+    border: none; 
+} 
+
+/* Стиль для черной клетки */
+.blackSquare {
+    text-align: center;
+    width : 50px; 
+    height : 50px; 
+    background-color : black;
+}
+
+/* Стиль для белой клетки */
+.whiteSquare {                
+    text-align: center;
+    width : 50px; 
+    height : 50px; 
+    background-color : white;
+}
+
+/* Стиль для разметки шахматной доски */
+.markSymbol {
+    text-align: center;
+    border-style : none; 
+    width : 50px; 
+    height : 50px; 
+    background-color : white;
+    color: mediumblue;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 150%;
+}
